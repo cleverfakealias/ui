@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     recaptchaSiteKey() {
-      return process.env.RECAPTCHA_SITE_KEY;
+      return process.env.NUXT_ENV_CAPTCHA_SITE_KEY_V2;
     }
   },
   methods: {
