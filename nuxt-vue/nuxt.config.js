@@ -1,16 +1,17 @@
 import colors from 'vuetify/es5/util/colors'
-
+require('dotenv').config()
 export default {
   env: {
-    NUXT_ENV_CAPTCHA_SITE_KEY_V2: process.env.NUXT_ENV_CAPTCHA_SITE_KEY_V2
+    NUXT_ENV_CAPTCHA_SITE_KEY_V2: process.env.NUXT_ENV_CAPTCHA_SITE_KEY_V2,
+    NUXT_ENV_OPEN_WEATHER_API_KEY: process.env.NUXT_ENV_OPEN_WEATHER_API_KEY,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     script: [
       { src: 'https://www.google.com/recaptcha/api.js?render=explicit', async: true, defer: true }
     ],
-    titleTemplate: '%s - nuxt-vue',
-    title: 'nuxt-vue',
+    titleTemplate: '%s - BJH Development',
+    title: 'BenHickman.dev - Software Engineer, Web Developer, and Tech Enthusiast',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

@@ -72,14 +72,24 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home-variant',
           title: 'Welcome',
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-file-document',
+          title: 'Resume',
+          to: '/resume',
+        },
+        {
+          icon: 'mdi-email',
           title: 'Contact Me',
           to: '/contact-me',
+        },
+        {
+          icon: 'mdi-weather-sunny',
+          title: 'Weather',
+          to: '/weather',
         },
       ],
       miniVariant: false,
