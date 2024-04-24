@@ -1,8 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  env: {
+    NUXT_ENV_CAPTCHA_SITE_KEY_V2: process.env.NUXT_ENV_CAPTCHA_SITE_KEY_V2
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    script: [
+      { src: 'https://www.google.com/recaptcha/api.js?render=explicit', async: true, defer: true }
+    ],
     titleTemplate: '%s - nuxt-vue',
     title: 'nuxt-vue',
     meta: [
