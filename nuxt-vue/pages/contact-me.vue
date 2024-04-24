@@ -3,7 +3,7 @@
     <v-text-field v-model="name" label="Name" required></v-text-field>
     <v-text-field v-model="email" label="Email Address" required></v-text-field>
     <v-textarea v-model="message" label="Message" required></v-textarea>
-    <vue-recaptcha :sitekey="process.env.RECAPTCHA_SITE_KEY" @verify="onCaptchaVerified" @expired="onCaptchaExpired"></vue-recaptcha>
+    <vue-recaptcha :sitekey="recaptchaSiteKey" @verify="onCaptchaVerified" @expired="onCaptchaExpired"></vue-recaptcha>
     <v-btn type="submit">Submit</v-btn>
   </v-form>
 </template>
@@ -22,6 +22,11 @@ export default {
       email: '',
       message: '',
       recaptcha: '', // Add this line
+    }
+  },
+  computed: {
+    recaptchaSiteKey() {
+      return process.env.RECAPTCHA_SITE_KEY;
     }
   },
   methods: {
