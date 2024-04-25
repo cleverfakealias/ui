@@ -84,10 +84,12 @@ dist
 sw.*
 
 # macOS
-.DS_Store
+**.DS_Store
 
 # Vim swap files
 *.swp
 
 # for local environment varables
 .env*
+
+pnpm-lock.yaml

@@ -36,7 +36,17 @@
         <v-icon>mdi-minus</v-icon>
       </v-btn>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
-      <v-spacer />
+      <v-spacer></v-spacer>
+      <form action="https://duckduckgo.com/" method="get" target="_blank">
+        <v-text-field
+          name="q"
+          label="Search"
+          single-line
+          hide-details
+          append-icon="mdi-magnify"
+        ></v-text-field>
+      </form>
+
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -95,7 +105,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Welcome to my website!',
+      title: 'BenHickman.dev',
     }
   },
 }

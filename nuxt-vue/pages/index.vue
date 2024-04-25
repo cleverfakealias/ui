@@ -5,19 +5,26 @@
       <v-col cols="12" sm="8" class="text-left">
         <h1>Ben Hickman</h1>
         <h2>Software Engineer</h2>
-        <v-row justify="center" my="5">
-          <v-col class="text-center">
+        <br />
+        <v-row align="center" justify="center">
+          <v-col cols="auto">
             <v-icon color="warning">mdi-alert</v-icon>
-            Please note this website is a work in progress so some things may
-            not work as expected!
+          </v-col>
+          <v-col cols="auto">
+            <h4>
+              Please note this website is a work in progress so some things may
+              not work as expected!
+            </h4>
+          </v-col>
+          <v-col cols="auto">
             <v-icon color="warning">mdi-alert</v-icon>
           </v-col>
         </v-row>
         <br />
         <p>
-          Hi there!<br /><br/>
+          Hi there!<br /><br />
 
-            I'm delighted to have you here! My name is Ben Hickman and I'm an
+          I'm delighted to have you here! My name is Ben Hickman and I'm an
           experienced software engineer specializing in full-stack development,
           I've built this portfolio to showcase my expertise in full stack
           development. This website was built using the following technologies:
@@ -28,10 +35,10 @@
             <a href="https://vuetifyjs.com/en/" target="_blank">Vuetify.js</a>
           </li>
           <li>
-            <a href="https://www.python.org" target="_blank">Python</a> for
-            serverless functions
+            <a href="https://www.python.org" target="_blank">Python</a>
           </li>
         </ul>
+        <br />
         <p>
           Please feel free to explore my work and reach out if you believe we
           could create something great together.
