@@ -1,48 +1,34 @@
 <template>
-  <v-form @submit.prevent="submitForm">
-    <v-text-field v-model="name" label="Name" required></v-text-field>
-    <v-text-field v-model="email" label="Email Address" required></v-text-field>
-    <v-textarea v-model="message" label="Message" required></v-textarea>
-    <vue-recaptcha :sitekey="recaptchaSiteKey" @verify="onCaptchaVerified" @expired="onCaptchaExpired"></vue-recaptcha>
-    <v-btn type="submit">Submit</v-btn>
-  </v-form>
+  <v-container>
+    <v-row justify="center">
+      <v-col cols="12" md="8" class="text-center">
+        <h2 class="display-1">
+          This form can be used to contact me via email. I'll get back to you as
+          soon as possible!
+        </h2>
+      </v-col>
+    </v-row>
+    <v-row justify="center">
+      <v-col cols="12" md="4">
+        <ContactForm />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import axios from 'axios'
-import VueRecaptcha from 'vue-recaptcha'
+import ContactForm from '@/components/ContactForm.vue'
 
 export default {
   components: {
-    VueRecaptcha,
+    ContactForm,
   },
-  data() {
-    return {
-      name: '',
-      email: '',
-      message: '',
-      recaptcha: '', // Add this line
-    }
-  },
-  computed: {
-    recaptchaSiteKey() {
-      return process.env.NUXT_ENV_CAPTCHA_SITE_KEY_V2;
-    }
-  },
-  methods: {
-    onCaptchaVerified(response) {
-      this.recaptcha = response
-    },
-    onCaptchaExpired() {
-      this.recaptcha = ''
-    },
-    async submitForm() {
-      if (!this.recaptcha) {
-        alert('Please verify the CAPTCHA')
-        return
-      }
-      // ...
-    },
-  },
+  // other component options
 }
 </script>
+
+<style scoped>
+.text-center {
+  text-align: center;
+}
+</style>

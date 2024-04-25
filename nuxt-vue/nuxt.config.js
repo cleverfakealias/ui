@@ -8,10 +8,15 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     script: [
-      { src: 'https://www.google.com/recaptcha/api.js?render=explicit', async: true, defer: true }
+      {
+        src: 'https://www.google.com/recaptcha/api.js?render=explicit',
+        async: true,
+        defer: true,
+      },
     ],
     titleTemplate: '%s - BJH Development',
-    title: 'BenHickman.dev - Software Engineer, Web Developer, and Tech Enthusiast',
+    title:
+      'BenHickman.dev - Software Engineer, Web Developer, and Tech Enthusiast',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
