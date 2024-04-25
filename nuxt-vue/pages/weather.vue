@@ -8,7 +8,6 @@
 
 <script>
 import axios from 'axios'
-console.log(process.env.NUXT_ENV_OPEN_WEATHER_API_KEY)
 export default {
   data() {
     return {
