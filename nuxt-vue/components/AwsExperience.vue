@@ -52,7 +52,7 @@ export default {
         {
           title: 'Data Storage and Management',
           description:
-            'My expertise extends to cloud-based data storage and management solutions on AWS, including relational databases with RDS, NoSQL databases with DynamoDB, and object storage with S3. I have implemented highly available and durable data storage architectures, leveraging AWS services to meet the performance, scalability, and security requirements of diverse applications.',
+            'My expertise extends to cloud-based data storage and management solutions on AWS, including relational and non-relational databases, and object storage with S3. I have implemented highly available and durable data storage architectures, leveraging AWS services to meet the performance, scalability, and security requirements of diverse applications.',
         },
         {
           title: 'Security and Compliance',

@@ -25,23 +25,11 @@
         </v-row>
       </v-col>
     </v-row>
-
-    <!-- Portfolio highlights -->
-    <v-row>
-      <v-col>
-        <h2>Portfolio Highlights</h2>
-        <p>
-          Explore my portfolio to see examples of my work, and feel free to
-          reach out to discuss how I can contribute to your team's success.
-        </p>
-        <DevelopmentComponent />
-        <AwsComponent />
-      </v-col>
-    </v-row>
-
+    <DevelopmentComponent />
+    <AwsComponent />
     <!-- Collaborative approach -->
     <v-row>
-      <v-col>
+      <v-col class="text-center">
         <h2>Collaborative Approach</h2>
         <p>
           Equipped with strong communication skills and a keen eye for detail, I
@@ -54,7 +42,7 @@
 
     <!-- Contact/Connect section -->
     <v-row>
-      <v-col>
+      <v-col class="text-center">
         <h2>Ready to Collaborate?</h2>
         <p>
           Whether you're seeking a seasoned developer for your next project or
@@ -66,12 +54,18 @@
         </p>
       </v-col>
     </v-row>
+    <v-row justify="center">
+      <v-col cols="12" md="4">
+        <ContactForm />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import AwsComponent from '~/components/AwsExperience.vue'
 import DevelopmentComponent from '~/components/DevelopmentExperience.vue'
+import ContactForm from '~/components/ContactForm.vue'
 
 export default {
   components: {

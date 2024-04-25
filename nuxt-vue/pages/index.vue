@@ -4,7 +4,7 @@
     <v-row justify="center" class="my-5">
       <v-col cols="12" sm="8" class="text-left">
         <h1>Ben Hickman</h1>
-        <h2>Software Engineer</h2>
+        <h2>Thinker. Maker. Doer of many things.</h2>
         <br />
         <v-row align="center" justify="center">
           <v-col cols="auto">
@@ -21,28 +21,49 @@
           </v-col>
         </v-row>
         <br />
-        <p>
-          Hi there!<br /><br />
-
-          I'm delighted to have you here! My name is Ben Hickman and I'm an
-          experienced software engineer specializing in full-stack development,
-          I've built this portfolio to showcase my expertise in full stack
-          development. This website was built using the following technologies:
-        </p>
-        <ul>
-          <li><a href="https://nuxtjs.org" target="_blank">Nuxt.js</a></li>
-          <li>
-            <a href="https://vuetifyjs.com/en/" target="_blank">Vuetify.js</a>
-          </li>
-          <li>
-            <a href="https://www.python.org" target="_blank">Python</a>
-          </li>
-        </ul>
+        <PersonalSummary />
+        <h3>This application was built with the following:</h3>
+        <div>
+          <div>
+            <a href="https://nuxtjs.org" target="_blank">
+              <v-icon>mdi-nuxt</v-icon> Nuxt.js
+            </a>
+          </div>
+          <div>
+            <a href="https://vuetifyjs.com/en/" target="_blank">
+              <v-icon>mdi-vuetify</v-icon> Vuetify.js
+            </a>
+          </div>
+          <div>
+            <a href="https://vercel.com" target="_blank">
+              <v-icon>mdi-cloud</v-icon> Vercel
+            </a>
+          </div>
+          <div>
+            <a href="https://www.python.org" target="_blank">
+              <v-icon>mdi-language-python</v-icon> Python
+            </a>
+          </div>
+        </div>
         <br />
-        <p>
-          Please feel free to explore my work and reach out if you believe we
-          could create something great together.
-        </p>
+        <h3>
+          Please feel free to explore my work, unfortunately, most of it I can't
+          actually show you. Reach out if you believe we could create something
+          great together.
+        </h3>
+        <div>
+          <a href="https://github.com/cleverfakealias" target="_blank">
+            <v-icon>mdi-github</v-icon> GitHub
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.linkedin.com/in/ben-hickman-02978819b/"
+            target="_blank"
+          >
+            <v-icon>mdi-linkedin</v-icon> LinkedIn
+          </a>
+        </div>
       </v-col>
       <v-col cols="12" sm="4" class="text-right">
         <img :src="myPhoto" alt="Me" class="my-photo" />
@@ -77,10 +98,12 @@
 </template>
 
 <script>
+import PersonalSummary from '@/components/PersonalSummary.vue'
 import ContactForm from '@/components/ContactForm.vue'
 
 export default {
   components: {
+    PersonalSummary,
     ContactForm,
   },
   data() {
@@ -91,8 +114,9 @@ export default {
         'Java',
         'Python',
         'Typescript',
-        'Vue.js',
         'Node.js',
+        'React.js',
+        'Vue.js',
         'Docker',
         'Cloud Infrastructure',
       ],
