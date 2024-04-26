@@ -96,11 +96,11 @@ export default {
           title: 'Contact Me',
           to: '/contact-me',
         },
-        {
-          icon: 'mdi-weather-sunny',
-          title: 'Weather',
-          to: '/weather',
-        },
+        // {
+        //   icon: 'mdi-weather-sunny',
+        //   title: 'Weather',
+        //   to: '/weather',
+        // },
       ],
       miniVariant: false,
       right: true,
