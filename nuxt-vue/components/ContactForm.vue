@@ -26,10 +26,12 @@
       >
       </vue-recaptcha>
       <v-btn color="primary" type="submit">Email Me</v-btn>
+
     </form>
     <v-snackbar v-model="snackbar" color="error" :timeout="3000">
       {{ snackbarMessage }}
       <v-btn color="white" text @click="snackbar = false"> Close </v-btn>
+      <v-btn color="primary" @click="callTestApi">Call Test API</v-btn>
     </v-snackbar>
   </div>
 </template>
@@ -110,6 +112,14 @@ export default {
       } catch (error) {
         console.error(error)
         alert('An error occurred while sending the email')
+      }
+    },
+    async callTestApi() {
+      try {
+        const response = await axios.get('/api/test');
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
       }
     },
   },

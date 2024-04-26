@@ -20,9 +20,8 @@ def send_email(name, email, message):
         return {'status': 'error', 'message': str(e)}, HTTPStatus.INTERNAL_SERVER_ERROR
 
 def handler(event, context):
+    logging.info(event)
     try:
-        logging.info(event)
-        logging.info(context)
         body = json.loads(event['body'])
         name = body.get('name')
         email = body.get('email')
