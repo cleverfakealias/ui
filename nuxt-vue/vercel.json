@@ -6,6 +6,7 @@
     { "src": "api/test.py", "use": "@vercel/python" }
   ],
   "routes": [
+    { "handle": "filesystem" },
     { "src": "^/api/send_email/(.*)", "dest": "/api/send_email.py" },
     { "src": "^/api/test/(.*)", "dest": "/api/test.py" },
     { "src": "/(.*)", "dest": "/nuxt-vue/index.html" }
