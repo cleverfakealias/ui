@@ -3,6 +3,7 @@ from sendgrid.helpers.mail import Mail
 from http import HTTPStatus
 import os
 import logging
+import json
 
 def send_email(name, email, message):
     message = Mail(
@@ -22,7 +23,7 @@ def handler(event, context):
     try:
         logging.info(event)
         logging.info(context)
-        body = event.get('body')
+        body = json.loads(event['body'])
         name = body.get('name')
         email = body.get('email')
         message = body.get('message')
