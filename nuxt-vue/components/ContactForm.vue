@@ -54,7 +54,12 @@
 
 <script>
 import axios from 'axios'
+import VueRecaptcha from 'vue-recaptcha';
+
 export default {
+  components: {
+    VueRecaptcha
+  },
   data() {
     return {
       name: '',
@@ -92,7 +97,7 @@ export default {
       }
 
       try {
-        const response = await axios.post('/send_email', formData)
+        const response = await axios.post('/api/send_email', formData)
         if (response.status === 200) {
           alert('Email sent successfully')
           this.name = ''
