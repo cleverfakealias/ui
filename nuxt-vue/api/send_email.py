@@ -2,6 +2,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from http import HTTPStatus
 import os
+import logging
 
 def send_email(name, email, message):
     message = Mail(
@@ -10,7 +11,6 @@ def send_email(name, email, message):
         subject='New Email from BenHickman.dev',
         plain_text_content=f'Name: {name}\nEmail: {email}\nMessage: {message}'
     )
-
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
@@ -19,9 +19,15 @@ def send_email(name, email, message):
         return {'status': 'error', 'message': str(e)}, HTTPStatus.INTERNAL_SERVER_ERROR
 
 def handler(event, context):
-    body = event.get('body')
-    name = body.get('name')
-    email = body.get('email')
-    message = body.get('message')
+    try:
+        logging.info(event)
+        logging.info(context)
+        body = event.get('body')
+        name = body.get('name')
+        email = body.get('email')
+        message = body.get('message')
 
-    return send_email(name, email, message)
+        return send_email(name, email, message)
+    except Exception as e:
+        logging.error(f"Error occurred: {str(e)}")
+        return {'status': 'error', 'message': str(e)}, HTTPStatus.INTERNAL_SERVER_ERROR
