@@ -1,8 +1,7 @@
 module.exports = {
     // Project paths
     projects: [
-      './nuxt-vue/package.json',
-      './api',
+        './nuxt-vue/package.json',
+        './nuxt-vue/api',
     ]
-  }
-  
+}
