@@ -2,30 +2,36 @@
   <div class="container">
     <form @submit.prevent="submitForm" class="contact-form">
       <v-text-field
-        v-model="name"
-        label="Name"
-        required
-        class="input-field"
+          v-model="name"
+          :rules="[v => !!v || 'Name is required']"
+          label="Name"
+          required
+          class="input-field"
       ></v-text-field>
       <v-text-field
-        v-model="email"
-        label="Email"
-        required
-        class="input-field"
+          v-model="email"
+          :rules="[v => /.+@.+\..+/.test(v) || 'E-mail must be valid']"
+          label="Email"
+          required
+          class="input-field"
       ></v-text-field>
       <v-textarea
-        v-model="message"
-        label="Message"
-        required
-        class="input-field"
+          v-model="message"
+          :rules="[v => !!v || 'Message is required']"
+          label="Message"
+          required
+          class="input-field"
       ></v-textarea>
       <vue-recaptcha
-        :sitekey="recaptchaSiteKey"
-        @verify="onCaptchaVerified"
-        @expired="onCaptchaExpired"
+          :sitekey="recaptchaSiteKey"
+          @verify="onCaptchaVerified"
+          @expired="onCaptchaExpired"
       >
       </vue-recaptcha>
-      <v-btn color="primary" type="submit">Email Me</v-btn>
+      <v-btn :disabled="loading" color="primary" type="submit">
+        <v-progress-circular v-if="loading" indeterminate color="white" size="24" />
+        <span v-else>Email Me</span>
+      </v-btn>
       <v-btn color="primary" @click="callTestApi">Call Test API</v-btn>
     </form>
     <v-snackbar v-model="snackbar" color="error" :timeout="3000">
@@ -34,24 +40,6 @@
     </v-snackbar>
   </div>
 </template>
-
-<style scoped>
-.container {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: .25rem;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: .25rem;
-}
-
-.input-field {
-  margin-bottom: 1rem;
-}
-</style>
 
 <script>
 import axios from 'axios'
@@ -69,6 +57,7 @@ export default {
       recaptcha: '',
       snackbar: false,
       snackbarMessage: '',
+      loading: false,
     }
   },
   computed: {
@@ -90,6 +79,8 @@ export default {
         return
       }
 
+      this.loading = true
+
       const formData = {
         name: this.name,
         email: this.email,
@@ -99,18 +90,21 @@ export default {
 
       try {
         const response = await axios.post('/api/send_email', formData)
-        if (response.status === 200) {
-          alert('Email sent successfully')
+        if (response.data.status === 'success') {
+          this.snackbarMessage = 'Email sent successfully'
           this.name = ''
           this.email = ''
           this.message = ''
           this.recaptcha = ''
         } else {
-          alert('Failed to send email')
+          this.snackbarMessage = response.data.message
         }
       } catch (error) {
         console.error(error)
-        alert('An error occurred while sending the email')
+        this.snackbarMessage = 'An error occurred while sending the email'
+      } finally {
+        this.loading = false
+        this.snackbar = true
       }
     },
     async callTestApi() {

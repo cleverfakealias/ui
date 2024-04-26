@@ -90,7 +90,7 @@ sw.*
 *.swp
 
 # for local environment varables
-.env*
+*.env*
 
 pnpm-lock.yaml
 
