@@ -26,12 +26,11 @@
       >
       </vue-recaptcha>
       <v-btn color="primary" type="submit">Email Me</v-btn>
-
+      <v-btn color="primary" @click="callTestApi">Call Test API</v-btn>
     </form>
     <v-snackbar v-model="snackbar" color="error" :timeout="3000">
       {{ snackbarMessage }}
       <v-btn color="white" text @click="snackbar = false"> Close </v-btn>
-      <v-btn color="primary" @click="callTestApi">Call Test API</v-btn>
     </v-snackbar>
   </div>
 </template>
