@@ -3,8 +3,7 @@
     <!-- Header section -->
     <v-row justify="center" class="my-5">
       <v-col cols="12" sm="8" class="text-left">
-        <h1>Ben Hickman</h1>
-        <h2>Thinker. Maker. Doer of many things.</h2>
+        
         <br />
         <v-row align="center" justify="center">
           <v-col cols="auto">
@@ -22,7 +21,7 @@
         </v-row>
         <br />
         <PersonalSummary />
-        <h3>This application was built with the following:</h3>
+        <!-- <h3>This application was built with the following:</h3>
         <div>
           <div>
             <a href="https://nuxtjs.org" target="_blank">
@@ -44,7 +43,7 @@
               <v-icon>mdi-language-python</v-icon> Python
             </a>
           </div>
-        </div>
+        </div> -->
         <br />
         <h3>
           Please feel free to explore my work, unfortunately, most of it I can't
