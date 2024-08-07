@@ -31,7 +31,7 @@
                 sm="6"
                 md="3"
               >
-                <v-chip color="primary">{{ skill }}</v-chip>
+                <v-chip class="custom-chip" color="primary">{{ skill }}</v-chip>
               </v-col>
             </v-row>
           </v-col>
@@ -83,13 +83,10 @@ export default {
       drawer: false,
       skills: [
         'Fullstack Development',
-        'System Design',
+        'Project Management',
         'Cloud Platforms',
-        'API Development',
-        'Code Optimization',
         'Database Management',
-        'Version Control',
-        'Continuous Integration',
+        'CI/CD Pipelines',
         'Containerization',
         'Technical Leadership',
         'Security Practices',
@@ -103,5 +100,9 @@ export default {
 .my-photo {
   max-width: 100%;
   height: auto;
+}
+.custom-chip {
+  white-space: normal;
+  word-break: break-word;
 }
 </style>

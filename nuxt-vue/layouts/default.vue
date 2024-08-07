@@ -60,8 +60,8 @@ export default {
       clipped: false,
       fixed: false,
       title: 'BJH Software',
-      githubLink: 'https://github.com/cleverfakealias',
-      linkedinLink: 'https://www.linkedin.com/in/ben-hickman-02978819b/',
+      githubLink: 'https://github.benhickman.dev',
+      linkedinLink: 'https://linkedin.benhickman.dev',
       items: [
         { title: 'Welcome', icon: 'mdi-home', to: '/' },
         { title: 'Resume', icon: 'mdi-file', to: '/resume' },
