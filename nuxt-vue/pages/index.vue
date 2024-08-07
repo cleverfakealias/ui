@@ -3,8 +3,17 @@
     <!-- Header section -->
     <v-row justify="center" class="my-5">
       <v-col cols="12" sm="8" class="text-left">
-        
-        <br />
+            <!-- Skills section -->
+    <v-row justify="center" class="my-5">
+      <v-col class="text-center">
+        <h2 class="my-5">Skill snapshot:</h2>
+        <v-row justify="center">
+          <v-col v-for="skill in skills" :key="skill">
+            <v-chip color="primary">{{ skill }}</v-chip>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
         <v-row align="center" justify="center">
           <v-col cols="auto">
             <v-icon color="warning">mdi-alert</v-icon>
@@ -21,7 +30,7 @@
         </v-row>
         <br />
         <PersonalSummary />
-        <!-- <h3>This application was built with the following:</h3>
+        <h3>This website was built using the following technologies:</h3>
         <div>
           <div>
             <a href="https://nuxtjs.org" target="_blank">
@@ -43,13 +52,11 @@
               <v-icon>mdi-language-python</v-icon> Python
             </a>
           </div>
-        </div> -->
+        </div>
         <br />
-        <h3>
-          Please feel free to explore my work, unfortunately, most of it I can't
-          actually show you. Reach out if you believe we could create something
-          great together.
-        </h3>
+        <h4>
+          Explore more of my work on GitHub and connect with me on LinkedIn!
+        </h4>
         <div>
           <a href="https://github.com/cleverfakealias" target="_blank">
             <v-icon>mdi-github</v-icon> GitHub
@@ -68,19 +75,6 @@
         <img :src="myPhoto" alt="Me" class="my-photo" />
       </v-col>
     </v-row>
-
-    <!-- Skills section -->
-    <v-row justify="center" class="my-5">
-      <v-col class="text-center">
-        <h2 class="my-5">Skills Snapshot</h2>
-        <v-row justify="center">
-          <v-col v-for="skill in skills" :key="skill">
-            <v-chip color="primary">{{ skill }}</v-chip>
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-row>
-
     <!-- Contact/Connect section -->
     <v-row justify="center" class="my-5">
       <v-col class="text-center">
@@ -90,7 +84,7 @@
     </v-row>
     <v-row justify="center" class="my-5">
       <v-col cols="12" md="4">
-        <ContactForm />
+        <ContactInformation />
       </v-col>
     </v-row>
   </v-container>
@@ -98,12 +92,12 @@
 
 <script>
 import PersonalSummary from '@/components/PersonalSummary.vue'
-import ContactForm from '@/components/ContactForm.vue'
+import ContactInformation from '@/components/ContactInformation.vue';
 
 export default {
   components: {
     PersonalSummary,
-    ContactForm,
+    ContactInformation,
   },
   data() {
     return {
