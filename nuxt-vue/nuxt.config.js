@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 require('dotenv').config()
 export default {
   serverMiddleware: {
-    '/api/send_email': '~/api/send_email.py'
+    '/api/send_email': '~/api/send_email.py',
   },
   env: {
     NUXT_ENV_CAPTCHA_SITE_KEY_V2: process.env.NUXT_ENV_CAPTCHA_SITE_KEY_V2,

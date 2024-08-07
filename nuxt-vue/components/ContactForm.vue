@@ -2,34 +2,39 @@
   <div class="container">
     <form @submit.prevent="submitForm" class="contact-form">
       <v-text-field
-          v-model="name"
-          :rules="[v => !!v || 'Name is required']"
-          label="Name"
-          required
-          class="input-field"
+        v-model="name"
+        :rules="[(v) => !!v || 'Name is required']"
+        label="Name"
+        required
+        class="input-field"
       ></v-text-field>
       <v-text-field
-          v-model="email"
-          :rules="[v => /.+@.+\..+/.test(v) || 'E-mail must be valid']"
-          label="Email"
-          required
-          class="input-field"
+        v-model="email"
+        :rules="[(v) => /.+@.+\..+/.test(v) || 'E-mail must be valid']"
+        label="Email"
+        required
+        class="input-field"
       ></v-text-field>
       <v-textarea
-          v-model="message"
-          :rules="[v => !!v || 'Message is required']"
-          label="Message"
-          required
-          class="input-field"
+        v-model="message"
+        :rules="[(v) => !!v || 'Message is required']"
+        label="Message"
+        required
+        class="input-field"
       ></v-textarea>
       <vue-recaptcha
-          :sitekey="recaptchaSiteKey"
-          @verify="onCaptchaVerified"
-          @expired="onCaptchaExpired"
+        :sitekey="recaptchaSiteKey"
+        @verify="onCaptchaVerified"
+        @expired="onCaptchaExpired"
       >
       </vue-recaptcha>
       <v-btn :disabled="loading" color="primary" type="submit">
-        <v-progress-circular v-if="loading" indeterminate color="white" size="24" />
+        <v-progress-circular
+          v-if="loading"
+          indeterminate
+          color="white"
+          size="24"
+        />
         <span v-else>Email Me</span>
       </v-btn>
       <v-btn color="primary" @click="callTestApi">Call Test API</v-btn>
@@ -43,11 +48,11 @@
 
 <script>
 import axios from 'axios'
-import VueRecaptcha from 'vue-recaptcha';
+import VueRecaptcha from 'vue-recaptcha'
 
 export default {
   components: {
-    VueRecaptcha
+    VueRecaptcha,
   },
   data() {
     return {
@@ -109,10 +114,10 @@ export default {
     },
     async callTestApi() {
       try {
-        const response = await axios.get('/api/test');
-        console.log(response.data);
+        const response = await axios.get('/api/test')
+        console.log(response.data)
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     },
   },
