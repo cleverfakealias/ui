@@ -3,11 +3,26 @@
     <!-- Main Content -->
     <v-main>
       <v-container>
+        <v-row align="center" justify="center">
+          <v-col cols="auto">
+            <v-icon color="warning">mdi-alert</v-icon>
+          </v-col>
+          <v-col cols="auto">
+            <h4>
+              Please note this website is a work in progress so some things may
+              not work as expected!
+            </h4>
+          </v-col>
+          <v-col cols="auto">
+            <v-icon color="warning">mdi-alert</v-icon>
+          </v-col>
+        </v-row>
+        <br />
         <ContactInformation />
         <!-- Skills section -->
         <v-row justify="center" class="my-5">
           <v-col class="text-center">
-            <h2 class="my-5">Skillset Highlight:</h2>
+            <h2 class="my-5">Skill Highlights</h2>
             <v-row justify="center">
               <v-col
                 v-for="skill in skills"
@@ -24,21 +39,6 @@
         <!-- Header section -->
         <v-row justify="center" class="my-5">
           <v-col cols="12" sm="8" class="text-left">
-            <v-row align="center" justify="center">
-              <v-col cols="auto">
-                <v-icon color="warning">mdi-alert</v-icon>
-              </v-col>
-              <v-col cols="auto">
-                <h4>
-                  Please note this website is a work in progress so some things
-                  may not work as expected!
-                </h4>
-              </v-col>
-              <v-col cols="auto">
-                <v-icon color="warning">mdi-alert</v-icon>
-              </v-col>
-            </v-row>
-            <br />
             <PersonalSummary />
             <h3>This website was built using the following technologies:</h3>
             <div>
@@ -72,15 +72,28 @@
 
 <script>
 import ContactInformation from '~/components/ContactInformation.vue'
-
+import PersonalSummary from '~/components/PersonalSummary.vue'
 export default {
   components: {
     ContactInformation,
+    PersonalSummary,
   },
   data() {
     return {
       drawer: false,
-      skills: ['JavaScript', 'Vue.js', 'Nuxt.js', 'Vuetify', 'Python'],
+      skills: [
+        'Fullstack Development',
+        'System Design',
+        'Cloud Platforms',
+        'API Development',
+        'Code Optimization',
+        'Database Management',
+        'Version Control',
+        'Continuous Integration',
+        'Containerization',
+        'Technical Leadership',
+        'Security Practices',
+      ],
     }
   },
 }
