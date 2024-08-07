@@ -56,7 +56,7 @@
     </v-row>
     <v-row justify="center">
       <v-col cols="12" md="4">
-        <ContactForm />
+        <ContactInformation/>
       </v-col>
     </v-row>
   </v-container>
@@ -65,11 +65,12 @@
 <script>
 import AwsComponent from '~/components/AwsExperience.vue'
 import DevelopmentComponent from '~/components/DevelopmentExperience.vue'
-import ContactForm from '~/components/ContactForm.vue'
+import ContactInformation from '~/components/ContactInformation.vue';
 
 export default {
   components: {
     AwsComponent,
+    ContactInformation,
     DevelopmentComponent,
   },
   data() {
