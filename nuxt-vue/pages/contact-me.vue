@@ -3,8 +3,8 @@
     <v-row justify="center">
       <v-col cols="12" md="8" class="text-center">
         <h2 class="display-1">
-          Please feel free to reach out to me and I'll get back to you as
-          soon as possible!
+          Please feel free to reach out to me and I'll get back to you as soon
+          as possible!
         </h2>
       </v-col>
     </v-row>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ContactInformation from '~/components/ContactInformation.vue';
+import ContactInformation from '~/components/ContactInformation.vue'
 
 export default {
   components: {

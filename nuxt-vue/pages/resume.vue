@@ -16,14 +16,17 @@
 
     <!-- Skills section -->
     <v-row>
-      <v-col>
-        <h2>Skills Snapshot</h2>
-        <v-row>
-          <v-col v-for="skill in skills" :key="skill">
-            <v-chip color="primary">{{ skill }}</v-chip>
-          </v-col>
-        </v-row>
-      </v-col>
+      <div>
+        <v-col>
+          <h2>Skill Details</h2>
+          <br />
+          <v-row>
+            <v-col v-for="skill in skills" :key="skill">
+              <v-chip color="primary">{{ skill }}</v-chip>
+            </v-col>
+          </v-row>
+        </v-col>
+      </div>
     </v-row>
     <DevelopmentComponent />
     <AwsComponent />
@@ -56,7 +59,7 @@
     </v-row>
     <v-row justify="center">
       <v-col cols="12" md="4">
-        <ContactInformation/>
+        <ContactInformation />
       </v-col>
     </v-row>
   </v-container>
@@ -65,7 +68,7 @@
 <script>
 import AwsComponent from '~/components/AwsExperience.vue'
 import DevelopmentComponent from '~/components/DevelopmentExperience.vue'
-import ContactInformation from '~/components/ContactInformation.vue';
+import ContactInformation from '~/components/ContactInformation.vue'
 
 export default {
   components: {

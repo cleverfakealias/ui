@@ -1,12 +1,9 @@
 <template>
   <v-container>
-    <!-- Header section -->
-    <v-row justify="center" class="my-5">
-      <v-col cols="12" sm="8" class="text-left">
-            <!-- Skills section -->
+    <!-- Skills section -->
     <v-row justify="center" class="my-5">
       <v-col class="text-center">
-        <h2 class="my-5">Skill snapshot:</h2>
+        <h2 class="my-5">Skill quick glance:</h2>
         <v-row justify="center">
           <v-col v-for="skill in skills" :key="skill">
             <v-chip color="primary">{{ skill }}</v-chip>
@@ -14,6 +11,9 @@
         </v-row>
       </v-col>
     </v-row>
+    <!-- Header section -->
+    <v-row justify="center" class="my-5">
+      <v-col cols="12" sm="8" class="text-left">
         <v-row align="center" justify="center">
           <v-col cols="auto">
             <v-icon color="warning">mdi-alert</v-icon>
@@ -53,23 +53,6 @@
             </a>
           </div>
         </div>
-        <br />
-        <h4>
-          Explore more of my work on GitHub and connect with me on LinkedIn!
-        </h4>
-        <div>
-          <a href="https://github.com/cleverfakealias" target="_blank">
-            <v-icon>mdi-github</v-icon> GitHub
-          </a>
-        </div>
-        <div>
-          <a
-            href="https://www.linkedin.com/in/ben-hickman-02978819b/"
-            target="_blank"
-          >
-            <v-icon>mdi-linkedin</v-icon> LinkedIn
-          </a>
-        </div>
       </v-col>
       <v-col cols="12" sm="4" class="text-right">
         <img :src="myPhoto" alt="Me" class="my-photo" />
@@ -92,7 +75,7 @@
 
 <script>
 import PersonalSummary from '@/components/PersonalSummary.vue'
-import ContactInformation from '@/components/ContactInformation.vue';
+import ContactInformation from '@/components/ContactInformation.vue'
 
 export default {
   components: {
