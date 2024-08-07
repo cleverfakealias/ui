@@ -3,7 +3,7 @@
     <v-card-title>
       <v-row>
         <v-icon>mdi-account-box</v-icon>
-        <span class="ml-2"><strong>Ben Hickman</strong></span>
+        <span class="ml-2"><strong>Ben Hickman - Professional Software Engineer <v-icon>mdi-laptop</v-icon></strong></span>
       </v-row>
     </v-card-title>
     <v-card-text>
@@ -11,12 +11,12 @@
         <v-col cols="10">
           <v-simple-table>
             <tbody>
-              <tr>
+              <!-- <tr>
                 <td>
                   <v-icon>mdi-laptop</v-icon>
                 </td>
                 <td>Software Engineer</td>
-              </tr>
+              </tr> -->
               <tr>
                 <td>
                   <v-icon>mdi-earth</v-icon>
