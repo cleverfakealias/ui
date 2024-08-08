@@ -20,7 +20,7 @@
 import ContactInformation from '~/components/ContactInformation.vue'
 
 export default {
-  name: "ContactMe",
+  name: 'ContactMe',
   components: {
     ContactInformation,
   },

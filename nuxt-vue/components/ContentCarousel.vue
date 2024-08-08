@@ -1,32 +1,46 @@
 <template>
   <div>
-    <div class="playground-container">
-      <header class="playground-header">
-        <h1>Just a place to play around</h1>
-      </header>
-      <main class="playground-main">
-        <textarea
-          v-model="inputText"
-          placeholder="Type something..."
-          class="playground-textarea"
-        ></textarea>
-        <button @click="displayText" class="playground-button">
-          Display Text
-        </button>
-        <div v-if="displayedText" class="playground-display">
-          <p>{{ displayedText }}</p>
-        </div>
-      </main>
-    </div>
+    <v-container>
+      <!-- Interactive Projects Showcase -->
+      <v-carousel>
+        <v-carousel-item v-for="(project, index) in projects" :key="index">
+          <v-card>
+            <v-img :src="project.image" height="200px"></v-img>
+            <v-card-title>{{ project.title }}</v-card-title>
+            <v-card-subtitle>{{ project.description }}</v-card-subtitle>
+            <v-card-actions>
+              <v-btn :href="project.link" target="_blank">Visit Page</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-carousel-item>
+      </v-carousel>
+      <br />
+    </v-container>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'ContentCarousel',
   data() {
     return {
       inputText: '',
       displayedText: '',
+      projects: [
+        {
+          title: 'GitHub',
+          description: 'My Git Projects.',
+          image: require('@/assets/code2.jpg'),
+          link: 'https://github.benhickman.dev',
+        },
+        {
+          title: 'LinkedIn',
+          description: 'Connect with me on LinkedIn.',
+          image: require('@/assets/linkedin.jpg'),
+          link: 'https://linkedin.benhickman.dev',
+        },
+        // Add more projects here
+      ],
     }
   },
   methods: {

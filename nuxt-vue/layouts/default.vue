@@ -11,6 +11,7 @@
         <v-btn icon :href="linkedinLink" target="_blank">
           <v-icon>mdi-linkedin</v-icon>
         </v-btn>
+        <ResumeDownload />
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <form action="https://duckduckgo.com/" method="get" target="_blank">
@@ -58,7 +59,11 @@
 </template>
 
 <script>
+import ResumeDownload from '~/components/ResumeDownload.vue'
 export default {
+  components: {
+    ResumeDownload,
+  },
   data() {
     return {
       drawer: false,

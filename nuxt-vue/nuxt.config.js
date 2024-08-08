@@ -18,7 +18,7 @@ export default {
       },
       {
         src: 'https://www.googletagmanager.com/gtag/js?id=G-Q8DS9KDSDJ',
-        async: true
+        async: true,
       },
       {
         hid: 'gtag',
@@ -29,11 +29,11 @@ export default {
           gtag('config', 'G-Q8DS9KDSDJ');
         `,
         type: 'text/javascript',
-        charset: 'utf-8'
-      }
+        charset: 'utf-8',
+      },
     ],
     __dangerouslyDisableSanitizersByTagID: {
-      'gtag': ['innerHTML']
+      gtag: ['innerHTML'],
     },
     titleTemplate: '%s - BJH Software',
     title:
