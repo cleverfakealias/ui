@@ -47,7 +47,9 @@
     </v-main>
 
     <v-footer :absolute="fixed" app>
-      <!-- Footer content here -->
+      <div class="footer-content">
+        <span>&copy; {{ new Date().getFullYear() }} Ben Hickman and BJH Software. All rights reserved.</span>
+      </div>
     </v-footer>
   </v-app>
 </template>
@@ -71,3 +73,13 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+</style>
