@@ -9,7 +9,8 @@
           </v-col>
           <v-col cols="auto">
             <h4>
-              Please note, this website is under development. Some features may not function as expected.
+              Please note, this website is under development. Some features may
+              not function as expected.
             </h4>
           </v-col>
           <v-col cols="auto">
@@ -37,8 +38,8 @@
           <v-col>
             <PersonalSummary />
             <br />
-        <ContactInformation />
-        <br/>
+            <ContactInformation />
+            <br />
             <h3>This website was built using the following technologies:</h3>
             <div>
               <div>

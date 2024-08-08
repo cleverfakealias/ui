@@ -1,18 +1,18 @@
 <template>
   <v-card class="contact-card" outlined>
     <v-card-title>
-        <v-row class="align-center justify-center">
-          <v-col cols="6" class="text-left">
-            <v-icon>mdi-account-box</v-icon>
-            <span><strong>Ben Hickman</strong></span>
-          </v-col>
-          <v-spacer></v-spacer>
-          <v-col cols="6" class="text-right">
-            <span>Software Engineer</span>
-            <v-icon>mdi-laptop</v-icon>
-          </v-col>
-        </v-row>
-      </v-card-title>
+      <v-row class="align-center justify-center">
+        <v-col cols="6" class="text-left">
+          <v-icon>mdi-account-box</v-icon>
+          <span><strong>Ben Hickman</strong></span>
+        </v-col>
+        <v-spacer></v-spacer>
+        <v-col cols="6" class="text-right">
+          <span>Software Engineer</span>
+          <v-icon>mdi-laptop</v-icon>
+        </v-col>
+      </v-row>
+    </v-card-title>
     <v-row class="align-center">
       <v-col cols="6" class="photo-column">
         <v-img :src="myPhoto" alt="My Photo" class="photo" contain></v-img>
@@ -31,7 +31,6 @@
           </v-list-item>
 
           <v-list-item>
-        
             <v-list-item-content>
               <v-list-item-title>Email</v-list-item-title>
               <v-list-item-subtitle>
