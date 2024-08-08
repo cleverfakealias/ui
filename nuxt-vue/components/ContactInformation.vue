@@ -60,6 +60,12 @@ export default {
 
 <style scoped>
 
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .contact-container {
   display: flex;
   justify-content: center;
