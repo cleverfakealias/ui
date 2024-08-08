@@ -52,8 +52,6 @@ export default {
   name: 'ContactInformation',
   data() {
     return {
-      githubLink: 'https://github.com/your-profile',
-      linkedinLink: 'https://linkedin.com/in/your-profile',
       myPhoto: require('@/assets/me.jpg'),
     }
   },
