@@ -1,51 +1,50 @@
 <template>
-  <v-card class="contact-information">
-    <v-card-title>
-      <v-row>
-        <v-icon>mdi-account-box</v-icon>
-        <span class="ml-2"><strong>Ben Hickman</strong></span>
-      </v-row>
-    </v-card-title>
-    <v-card-text>
-      <v-row class="d-flex align-center">
-        <v-col cols="10">
-          <v-simple-table>
-            <tbody>
-              <tr>
-                <td>
-                  <v-icon>mdi-laptop</v-icon>
-                </td>
-                <td>Software Engineer</td>
-              </tr>
-              <tr>
-                <td>
-                  <v-icon>mdi-earth</v-icon>
-                </td>
-                <td>Minneapolis, MN</td>
-              </tr>
-              <tr>
-                <td>
-                  <v-icon>mdi-email</v-icon>
-                </td>
-                <td>
+  <div class="center-container">
+    <v-card class="contact-information" outlined>
+      <v-card-title>
+        <v-row>
+          <v-col class="left-column">
+            <v-icon>mdi-laptop</v-icon>
+            <span>Software Engineer</span>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col class="right-column">
+            <span><strong>Ben Hickman</strong></span>
+            <v-icon>mdi-account-box</v-icon>
+          </v-col>
+        </v-row>
+      </v-card-title>
+      <v-card-text>
+        <div class="contact-container">
+          <div class="contact-rows">
+            <v-row>
+              <v-col class="left-column">
+                <v-icon>mdi-earth</v-icon>
+                <span>Minnesota</span>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-icon>mdi-email</v-icon>
+                <span>
                   <a href="mailto:me@benhickman.dev">me@benhickman.dev</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <v-icon>mdi-phone</v-icon>
-                </td>
-                <td>(651) 300-4252</td>
-              </tr>
-            </tbody>
-          </v-simple-table>
-        </v-col>
-        <v-col cols="2" class="d-flex align-center">
-          <img :src="myPhoto" alt="My Photo" class="photo" />
-        </v-col>
-      </v-row>
-    </v-card-text>
-  </v-card>
+                </span>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col class="left-column">
+                <v-icon>mdi-phone</v-icon>
+                <span>(651) 300-4252</span>
+              </v-col>
+            </v-row>
+          </div>
+          <div class="photo-container">
+            <img :src="myPhoto" alt="My Photo" class="photo" />
+          </div>
+        </div>
+      </v-card-text>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -62,11 +61,47 @@ export default {
 </script>
 
 <style scoped>
-.photo {
-  max-height: 100%;
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+}
+
+.contact-information {
+  display: grid;
+  width: 80%;
+}
+
+.contact-rows {
+  width: 75%;
+  margin-left: 0; /* Align to the left */
+}
+
+.photo-container {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+  max-height: auto;
+  width: 50%;
   object-fit: contain;
-  display: block;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;}
+
+.left-column {
+  text-align: left;
+  word-break: normal;
+  white-space: normal;
+}
+
+.right-column {
+  text-align: right;
+  word-break: normal;
+  white-space: normal;
 }
 </style>
