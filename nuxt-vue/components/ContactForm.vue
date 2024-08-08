@@ -51,6 +51,7 @@ import axios from 'axios'
 import VueRecaptcha from 'vue-recaptcha'
 
 export default {
+  name: 'ContactForm',
   components: {
     VueRecaptcha,
   },

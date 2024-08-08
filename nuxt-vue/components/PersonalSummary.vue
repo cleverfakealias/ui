@@ -34,6 +34,7 @@
 
 <script>
 export default {
+  name: 'PersonalSummary',
   data() {
     return {
       windingRoad: require('@/assets/windingroad.jpeg'),

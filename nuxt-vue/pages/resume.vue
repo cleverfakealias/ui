@@ -18,7 +18,7 @@
     <v-row>
       <div>
         <v-col>
-          <h2>Skill Details</h2>
+          <h2>Demonstrated Skillset</h2>
           <br />
           <v-row>
             <v-col v-for="skill in skills" :key="skill">
@@ -30,6 +30,8 @@
     </v-row>
     <DevelopmentComponent />
     <AwsComponent />
+    <CareerTimeline />
+
     <!-- Collaborative approach -->
     <v-row>
       <v-col class="text-center">
@@ -67,12 +69,14 @@
 
 <script>
 import AwsComponent from '~/components/AwsExperience.vue'
+import CareerTimeline from '~/components/CareerTimeline.vue'
 import DevelopmentComponent from '~/components/DevelopmentExperience.vue'
 import ContactInformation from '~/components/ContactInformation.vue'
 
 export default {
   components: {
     AwsComponent,
+    CareerTimeline,
     ContactInformation,
     DevelopmentComponent,
   },
@@ -87,6 +91,7 @@ export default {
         'Java',
         'Python',
         'AWS',
+        'Vercel',
         'Azure Pipelines',
         'Docker',
         'Linux',
@@ -100,7 +105,35 @@ export default {
         'Code Reviews',
         'Project Management',
         'Leadership',
-        'Mentoring',
+      ],
+      timelineItems: [
+        {
+          title: 'Software Engineer',
+          subtitle: 'SPS Commerce',
+          description:
+            'Seasoned Software Developer working on enterprise Saas applications',
+          timestamp: '2017-present',
+          color: 'primary',
+          icon: 'mdi-briefcase',
+        },
+        {
+          title: 'Support Supervisor',
+          subtitle: 'WhereToLive.com',
+          description:
+            'Managed technical support team for web developer and email host for the Real Estate industry',
+          timestamp: '2012-2017',
+          color: 'primary',
+          icon: 'mdi-briefcase',
+        },
+        {
+          title: 'Technical Support Representative',
+          subtitle: 'Microboards Technology',
+          description:
+            'Provide technical support for CD and DVD replication and printing devices',
+          timestamp: '2007-2012',
+          color: 'primary',
+          icon: 'mdi-briefcase',
+        },
       ],
       portfolioHighlights: [
         {
