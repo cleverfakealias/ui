@@ -1,10 +1,10 @@
 <template>
     <v-container>
       <!-- Interactive Projects Showcase -->
-      <v-carousel>
+      <v-carousel cycle :show-arrows="false">
         <v-carousel-item v-for="(project, index) in projects" :key="index">
           <v-card>
-            <v-img :src="project.image" height="200px"></v-img>
+            <v-img :src="project.image" height="300px"></v-img>
             <v-card-title>{{ project.title }}</v-card-title>
             <v-card-subtitle>{{ project.description }}</v-card-subtitle>
             <v-card-actions>
