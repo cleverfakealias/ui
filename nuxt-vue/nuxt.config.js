@@ -17,7 +17,7 @@ export default {
         defer: true,
       },
     ],
-    titleTemplate: '%s - BJH Development',
+    titleTemplate: '%s - BJH Software',
     title:
       'BenHickman.dev - Software Engineer, Web Developer, and Tech Enthusiast',
     meta: [

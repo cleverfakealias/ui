@@ -71,6 +71,7 @@ export default {
         { title: 'Welcome', icon: 'mdi-home', to: '/' },
         { title: 'Resume', icon: 'mdi-file', to: '/resume' },
         { title: 'Contact Me', icon: 'mdi-email', to: '/contact-me' },
+        { title: 'Playground', icon: 'mdi-test-tube', to: '/playground' },
       ],
     }
   },

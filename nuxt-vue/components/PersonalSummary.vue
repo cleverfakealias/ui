@@ -20,7 +20,7 @@
 
           <v-card-actions>
             <router-link to="/resume">
-              <v-btn color="primary" text @click="learnMore">
+              <v-btn color="primary" text>
                 Learn More
                 <v-icon right>mdi-arrow-right</v-icon>
               </v-btn>
