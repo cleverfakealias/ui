@@ -17,6 +17,9 @@
             <v-icon color="warning">mdi-alert</v-icon>
           </v-col>
         </v-row>
+        <v-row justify="center" class="my-5">
+          <ContentCarousel />
+        </v-row>
         <!-- Skills section -->
         <v-row justify="center" class="my-5">
           <v-col class="text-center">
@@ -72,10 +75,12 @@
 
 <script>
 import ContactInformation from '~/components/ContactInformation.vue'
+import ContentCarousel from '~/components/ContentCarousel.vue';
 import PersonalSummary from '~/components/PersonalSummary.vue'
 export default {
   components: {
     ContactInformation,
+    ContentCarousel,
     PersonalSummary,
   },
   data() {
