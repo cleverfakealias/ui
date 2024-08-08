@@ -4,7 +4,7 @@
       <v-col>
         <v-card>
           <v-img
-            src="https://images.pexels.com/photos/59513/pexels-photo-59513.jpeg"
+            :src="windingRoad"
             height="200px"
             class="white--text"
           >
@@ -36,19 +36,11 @@
   </v-container>
 </template>
 
-<!-- <template>
-  <div class="summary">
-    <h2>About me</h2>
-    <p class="paragraph">{{ paragraph1 }}</p>
-    <p class="paragraph">{{ paragraph2 }}</p>
-    <p class="paragraph">{{ paragraph3 }}</p>
-  </div>
-</template> -->
-
 <script>
 export default {
   data() {
     return {
+      windingRoad: require('@/assets/windingroad.jpeg'),
       paragraph1: `
 Growing up, technology was always part of my life. From playing Nintendo as a young child to taking apart and reassembling my family's Gateway computer, my curiosity for how things worked was insatiable.
       `,
