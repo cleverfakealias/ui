@@ -1,53 +1,38 @@
 <template>
-  <div>
-    <div class="playground-container">
-      <header class="playground-header">
-        <h1>Just a place to play around</h1>
-      </header>
-      <main class="playground-main">
-        <textarea
-          v-model="inputText"
-          placeholder="Type something..."
-          class="playground-textarea"
-        ></textarea>
-        <button @click="displayText" class="playground-button">
-          Display Text
-        </button>
-        <div v-if="displayedText" class="playground-display">
-          <p>{{ displayedText }}</p>
-        </div>
-      </main>
-    </div>
-    <div>
-      <br />
-      <v-container>
-        <!-- Interactive Projects Showcase -->
-        <v-carousel>
-          <v-carousel-item v-for="(project, index) in projects" :key="index">
-            <v-card>
-              <v-img :src="project.image" height="200px"></v-img>
-              <v-card-title>{{ project.title }}</v-card-title>
-              <v-card-subtitle>{{ project.description }}</v-card-subtitle>
-              <v-card-actions>
-                <v-btn :href="project.link" target="_blank">View Project</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-carousel-item>
-        </v-carousel>
-
-        <!-- Downloadable Resume Button -->
-        <v-btn @click="downloadResume" color="primary"> Download Resume </v-btn>
-      </v-container>
-    </div>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col cols="12">
+        <h2>Career Timeline</h2>
+      </v-col>
+    </v-row>
+    <br />
+    <v-container>
+      <!-- Interactive Timeline -->
+      <v-timeline>
+        <v-timeline-item
+          v-for="(item, index) in timelineItems"
+          :key="index"
+          :color="item.color"
+          :icon="item.icon"
+          :timestamp="item.timestamp"
+        >
+          <v-card>
+            <v-card-title>{{ item.title }}</v-card-title>
+            <v-card-subtitle>{{ item.subtitle }}</v-card-subtitle>
+            <v-card-text>{{ item.timestamp }}</v-card-text>
+            <v-card-text>{{ item.description }}</v-card-text>
+          </v-card>
+        </v-timeline-item>
+      </v-timeline>
+    </v-container>
+  </v-container>
 </template>
 
 <script>
 export default {
+  name: 'CareerTimeline',
   data() {
     return {
-      inputText: '',
-      displayedText: '',
       timelineItems: [
         {
           title: 'Software Engineer',
@@ -77,29 +62,7 @@ export default {
           icon: 'mdi-briefcase',
         },
       ],
-      skills: [
-        { name: 'JavaScript', level: 90 },
-        { name: 'Vue.js', level: 80 },
-        // Add more skills here
-      ],
-      projects: [
-        {
-          title: 'Project 1',
-          description: 'Description of project 1.',
-          image: 'path/to/image.jpg',
-          link: 'https://example.com',
-        },
-        // Add more projects here
-      ],
     }
-  },
-  methods: {
-    displayText() {
-      this.displayedText = this.inputText
-    },
-    downloadResume() {
-      console.log('something happened')
-    },
   },
 }
 </script>
