@@ -1,19 +1,22 @@
 <template>
-    <v-container>
-      <!-- Interactive Projects Showcase -->
-      <v-carousel cycle :show-arrows="false">
-        <v-carousel-item v-for="(project, index) in projects" :key="index">
-          <v-card>
-            <v-img :src="project.image" height="300px"></v-img>
-            <v-card-title>{{ project.title }}</v-card-title>
-            <v-card-subtitle>{{ project.description }}</v-card-subtitle>
-            <v-card-actions>
-              <v-btn :href="project.link" target="_blank">Visit Page</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-carousel-item>
-      </v-carousel>
-    </v-container>
+  <v-card>
+    <v-carousel cycle>
+      <v-carousel-item v-for="(slide, index) in projects" :key="index" cover>
+        <a :href="slide.link" target="_blank" class="image-link">
+          <div class="image-wrapper">
+            <img :src="slide.image" :alt="slide.title" class="carousel-image" />
+          </div>
+          <div class="text-container">
+            <div class="text-background">
+              <span class="text">{{ slide.title }}</span>
+              <br />
+              <span class="text">{{ slide.description }}</span>
+            </div>
+          </div>
+        </a>
+      </v-carousel-item>
+    </v-carousel>
+  </v-card>
 </template>
 
 <script>
@@ -49,5 +52,41 @@ export default {
 </script>
 
 <style scoped>
+.image-link {
+  display: block;
+  text-decoration: none; /* Remove underline from links */
+}
 
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Ensure the image does not overflow the container */
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain; /* Ensure the image scales properly */
+}
+
+.text-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+}
+
+.text-background {
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.text {
+  color: #fff; /* White text for contrast */
+}
 </style>

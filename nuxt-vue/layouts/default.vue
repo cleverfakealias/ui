@@ -26,7 +26,11 @@
     </v-app-bar>
 
     <!-- Navigation Drawer -->
-    <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp && clipped" fixed>
+    <v-navigation-drawer
+      v-model="drawer"
+      :clipped="$vuetify.breakpoint.lgAndUp && clipped"
+      fixed
+    >
       <v-list>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to">
           <v-list-item-icon>
@@ -39,10 +43,10 @@
       </v-list>
       <v-divider></v-divider>
       <v-list-item-action>
-            <v-btn icon @click="drawer = false">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-          </v-list-item-action>
+        <v-btn icon @click="drawer = false">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </v-list-item-action>
     </v-navigation-drawer>
     <!-- Main Content -->
     <v-main>
@@ -78,7 +82,7 @@ export default {
       linkedinLink: 'https://linkedin.benhickman.dev',
       items: [
         { title: 'Welcome', icon: 'mdi-home', to: '/' },
-        { title: 'Résumé', icon: 'mdi-file', to: '/resume' },
+        { title: 'Resume', icon: 'mdi-file', to: '/resume' },
         { title: 'Contact Me', icon: 'mdi-email', to: '/contact-me' },
         { title: 'Playground', icon: 'mdi-test-tube', to: '/playground' },
       ],

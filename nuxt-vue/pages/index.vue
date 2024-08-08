@@ -75,7 +75,7 @@
 
 <script>
 import ContactInformation from '~/components/ContactInformation.vue'
-import ContentCarousel from '~/components/ContentCarousel.vue';
+import ContentCarousel from '~/components/ContentCarousel.vue'
 import PersonalSummary from '~/components/PersonalSummary.vue'
 export default {
   components: {
