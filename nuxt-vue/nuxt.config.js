@@ -44,7 +44,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/husky.png' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/siberianhusky.png' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
