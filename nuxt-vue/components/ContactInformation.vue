@@ -80,7 +80,7 @@ export default {
 
 .contact-rows {
   width: 75%;
-  margin-left: 0; /* Align to the left */
+  margin-left: 0;
 }
 
 .photo-container {
