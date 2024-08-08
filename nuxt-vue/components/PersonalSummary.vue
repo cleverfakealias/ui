@@ -3,11 +3,7 @@
     <v-row>
       <v-col>
         <v-card>
-          <v-img
-            :src="windingRoad"
-            height="200px"
-            class="white--text"
-          >
+          <v-img :src="windingRoad" height="200px" class="white--text">
             <v-card-title>My Journey in Technology</v-card-title>
           </v-img>
 

@@ -1,52 +1,61 @@
 <template>
-  <div class="center-container">
-    <v-card class="contact-information" outlined>
-      <v-card-title>
-        <v-row>
-          <v-col class="left-column">
-            <v-icon>mdi-laptop</v-icon>
-            <span>Software Engineer</span>
-          </v-col>
-          <v-spacer></v-spacer>
-          <v-col class="right-column">
-            <span><strong>Ben Hickman</strong></span>
-            <v-icon>mdi-account-box</v-icon>
-          </v-col>
-        </v-row>
-      </v-card-title>
-      <v-card-text>
-        <div class="contact-container">
-          <div class="contact-rows">
-            <v-row>
-              <v-col class="left-column">
-                <v-icon>mdi-earth</v-icon>
-                <span>Minnesota</span>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-icon>mdi-email</v-icon>
-                <span>
-                  <a href="mailto:me@benhickman.dev">me@benhickman.dev</a>
-                </span>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col class="left-column">
-                <v-icon>mdi-phone</v-icon>
-                <span>(651) 300-4252</span>
-              </v-col>
-            </v-row>
-          </div>
-          <div class="photo-container">
-            <img :src="myPhoto" alt="My Photo" class="photo" />
-          </div>
-        </div>
-      </v-card-text>
-    </v-card>
-  </div>
-</template>
+  <v-card class="contact-card" outlined>
+    <v-card-title>
+      <v-row class="align-center justify-center">
+        <v-col cols="6" class="text-left">
+          <v-icon>mdi-account-box</v-icon>
+          <span><strong>Ben Hickman</strong></span>
+        </v-col>
+        <v-spacer></v-spacer>
+        <v-col cols="6" class="text-right">
+          <span>Software Engineer</span>
+          <v-icon>mdi-laptop</v-icon>
+        </v-col>
+      </v-row>
+    </v-card-title>
+    <v-row class="align-center">
+      <v-col cols="6" class="photo-column">
+        <v-img :src="myPhoto" alt="My Photo" class="photo" contain></v-img>
+      </v-col>
 
+      <v-col cols="6" class="info-column text-right">
+        <v-list dense>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Location</v-list-item-title>
+              <v-list-item-subtitle>Minnesota</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-list-item-avatar>
+              <v-icon>mdi-earth</v-icon>
+            </v-list-item-avatar>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Email</v-list-item-title>
+              <v-list-item-subtitle>
+                <a href="mailto:me@benhickman.dev">me@benhickman.dev</a>
+              </v-list-item-subtitle>
+            </v-list-item-content>
+            <v-list-item-avatar>
+              <v-icon>mdi-email</v-icon>
+            </v-list-item-avatar>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Phone</v-list-item-title>
+              <v-list-item-subtitle>(651) 300-4252</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-list-item-avatar>
+              <v-icon>mdi-phone</v-icon>
+            </v-list-item-avatar>
+          </v-list-item>
+        </v-list>
+      </v-col>
+    </v-row>
+  </v-card>
+</template>
 <script>
 export default {
   name: 'ContactInformation',
@@ -57,55 +66,40 @@ export default {
   },
 }
 </script>
-
 <style scoped>
-.center-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.contact-card {
+  max-width: 600px;
+  margin: auto;
+  padding: 16px;
 }
 
-.contact-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.contact-information {
-  display: grid;
-  width: 80%;
-}
-
-.contact-rows {
-  width: 75%;
-  margin-left: 0;
-}
-
-.photo-container {
-  width: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.photo-column {
+  text-align: center;
 }
 
 .photo {
-  max-height: auto;
-  width: 50%;
-  object-fit: contain;
+  border-radius: 50%;
+  max-width: 100%;
+  width: 150px;
+  height: 150px;
+}
+
+.info-column {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.left-column {
-  text-align: left;
-  word-break: normal;
-  white-space: normal;
+.v-list-item-title {
+  font-weight: bold;
 }
 
-.right-column {
-  text-align: right;
-  word-break: normal;
-  white-space: normal;
+.v-list-item-subtitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.v-list-item-subtitle a:hover {
+  text-decoration: underline;
 }
 </style>
