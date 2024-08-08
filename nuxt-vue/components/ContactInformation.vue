@@ -52,8 +52,6 @@ export default {
   name: 'ContactInformation',
   data() {
     return {
-      githubLink: 'https://github.com/your-profile',
-      linkedinLink: 'https://linkedin.com/in/your-profile',
       myPhoto: require('@/assets/me.jpg'),
     }
   },
@@ -61,6 +59,11 @@ export default {
 </script>
 
 <style scoped>
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .contact-container {
   display: flex;
@@ -76,7 +79,7 @@ export default {
 
 .contact-rows {
   width: 75%;
-  margin-left: 0; /* Align to the left */
+  margin-left: 0;
 }
 
 .photo-container {
@@ -91,7 +94,8 @@ export default {
   width: 50%;
   object-fit: contain;
   display: flex;
-  align-items: center;}
+  align-items: center;
+}
 
 .left-column {
   text-align: left;
