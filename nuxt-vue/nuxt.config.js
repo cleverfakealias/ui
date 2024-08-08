@@ -16,7 +16,25 @@ export default {
         async: true,
         defer: true,
       },
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-Q8DS9KDSDJ',
+        async: true
+      },
+      {
+        hid: 'gtag',
+        innerHTML: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-Q8DS9KDSDJ');
+        `,
+        type: 'text/javascript',
+        charset: 'utf-8'
+      }
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      'gtag': ['innerHTML']
+    },
     titleTemplate: '%s - BJH Software',
     title:
       'BenHickman.dev - Software Engineer, Web Developer, and Tech Enthusiast',
@@ -26,7 +44,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/husky.png' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
