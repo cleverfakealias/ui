@@ -59,7 +59,6 @@ export default {
 </script>
 
 <style scoped>
-
 .center-container {
   display: flex;
   justify-content: center;
@@ -95,7 +94,8 @@ export default {
   width: 50%;
   object-fit: contain;
   display: flex;
-  align-items: center;}
+  align-items: center;
+}
 
 .left-column {
   text-align: left;

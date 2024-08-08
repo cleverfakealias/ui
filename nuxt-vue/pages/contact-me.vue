@@ -9,7 +9,7 @@
       </v-col>
     </v-row>
     <v-row justify="center">
-      <v-col cols="12" md="4">
+      <v-col>
         <ContactInformation />
       </v-col>
     </v-row>

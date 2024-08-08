@@ -14,7 +14,9 @@
         :key="index"
       >
         <v-card>
-          <v-card-title class="title-container">{{ experience.title }}</v-card-title>
+          <v-card-title class="title-container">{{
+            experience.title
+          }}</v-card-title>
           <v-card-text>
             <p>{{ experience.description }}</p>
           </v-card-text>

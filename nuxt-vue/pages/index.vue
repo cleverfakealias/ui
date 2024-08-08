@@ -36,9 +36,8 @@
             </v-row>
           </v-col>
         </v-row>
-        <!-- Header section -->
         <v-row justify="center" class="my-5">
-          <v-col cols="12" sm="8" class="text-left">
+          <v-col>
             <PersonalSummary />
             <h3>This website was built using the following technologies:</h3>
             <div>
