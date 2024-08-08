@@ -45,7 +45,7 @@ export default {
 Growing up, technology was always part of my life. From playing Nintendo as a young child to taking apart and reassembling my family's Gateway computer, my curiosity for how things worked was insatiable.
       `,
       paragraph2: `
-I started my career in technical support and eventually became a supervisor at a dot-com startup. In this role I was immersed in web development and email hosting in the Real Estate industry. Now, I'm working on an enterprise software engineering team involving numerous microservices and user interfaces in multiple langues.
+I started my career in technical support and eventually became a supervisor at a dot-com startup. In this role I was immersed in web development and email hosting in the Real Estate industry. Now, I'm working on an enterprise software engineering team at a global Saas company. I work on numerous microservices and user interfaces in multiple languages.
       `,
       paragraph3: `
 Over the years, I've become proficient in Python, Typescript/Javascript, and Java. I thrive on solving complex problems. I'm constantly learning and adapting to new technologies, and I'm excited about the possibility of transitioning to an Architect role in the future where I am able to leverage my skills in cloud systems and development.
