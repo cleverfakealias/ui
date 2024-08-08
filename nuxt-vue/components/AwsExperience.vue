@@ -28,6 +28,7 @@
 
 <script>
 export default {
+  name: 'AwsExperience',
   data() {
     return {
       awsExperiences: [
