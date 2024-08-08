@@ -9,20 +9,17 @@
           </v-col>
           <v-col cols="auto">
             <h4>
-              Please note this website is a work in progress so some things may
-              not work as expected!
+              Please note, this website is under development. Some features may not function as expected.
             </h4>
           </v-col>
           <v-col cols="auto">
             <v-icon color="warning">mdi-alert</v-icon>
           </v-col>
         </v-row>
-        <br />
-        <ContactInformation />
         <!-- Skills section -->
         <v-row justify="center" class="my-5">
           <v-col class="text-center">
-            <h2 class="my-5">Skill Highlights</h2>
+            <h2 class="my-5">Career Highlights</h2>
             <v-row justify="center">
               <v-col
                 v-for="skill in skills"
@@ -39,6 +36,9 @@
         <v-row justify="center" class="my-5">
           <v-col>
             <PersonalSummary />
+            <br />
+        <ContactInformation />
+        <br/>
             <h3>This website was built using the following technologies:</h3>
             <div>
               <div>
