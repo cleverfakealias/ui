@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="playground-container">
+  <v-container>
+    <div class="playground-container" app>
       <header class="playground-header">
         <h1>Just a place to play around</h1>
       </header>
@@ -18,7 +18,7 @@
         </div>
       </main>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>

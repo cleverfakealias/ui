@@ -25,8 +25,12 @@
                 <v-icon class="responsive-icon">mdi-earth</v-icon>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title class="responsive-text">Location</v-list-item-title>
-                <v-list-item-subtitle class="responsive-text">Minnesota</v-list-item-subtitle>
+                <v-list-item-title class="responsive-text"
+                  >Location</v-list-item-title
+                >
+                <v-list-item-subtitle class="responsive-text"
+                  >Minnesota</v-list-item-subtitle
+                >
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
@@ -34,7 +38,9 @@
                 <v-icon class="responsive-icon">mdi-email</v-icon>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title class="responsive-text">Email</v-list-item-title>
+                <v-list-item-title class="responsive-text"
+                  >Email</v-list-item-title
+                >
                 <v-list-item-subtitle class="responsive-text">
                   <a href="mailto:me@benhickman.dev">me@benhickman.dev</a>
                 </v-list-item-subtitle>
@@ -45,8 +51,12 @@
                 <v-icon class="responsive-icon">mdi-phone</v-icon>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title class="responsive-text">Phone</v-list-item-title>
-                <v-list-item-subtitle class="responsive-text">(651) 300-4252</v-list-item-subtitle>
+                <v-list-item-title class="responsive-text"
+                  >Phone</v-list-item-title
+                >
+                <v-list-item-subtitle class="responsive-text"
+                  >(651) 300-4252</v-list-item-subtitle
+                >
               </v-list-item-content>
             </v-list-item>
           </v-list>

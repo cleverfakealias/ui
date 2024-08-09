@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <!-- App Bar with Hamburger Menu -->
-    <v-app-bar :clipped-left="clipped" fixed>
+    <v-app-bar :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title
         >{{ title }}
@@ -28,10 +28,29 @@
     <!-- Navigation Drawer -->
     <v-navigation-drawer
       v-model="drawer"
+      v-click-outside="closeDrawer"
       :clipped="$vuetify.breakpoint.lgAndUp && clipped"
+      class="navigation-drawer"
       fixed
     >
+      <div class="drawer-header">
+        <v-btn icon class="close-btn" @click="drawer = false">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </div>
       <v-list>
+        <v-list-item class="user-info">
+          <v-list-item-avatar>
+            <v-img src="https://via.placeholder.com/150"></v-img>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title class="headline">Ben Hickman</v-list-item-title>
+            <v-list-item-subtitle>me@benhickman.com</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
         <v-list-item v-for="item in items" :key="item.title" :to="item.to">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -42,12 +61,11 @@
         </v-list-item>
       </v-list>
       <v-divider></v-divider>
-      <v-list-item-action>
-        <v-btn icon @click="drawer = false">
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-      </v-list-item-action>
     </v-navigation-drawer>
+
+    <!-- Overlay to detect clicks outside the drawer -->
+    <v-overlay v-if="drawer" @click="drawer = false"></v-overlay>
+
     <!-- Main Content -->
     <v-main>
       <v-container fluid>
@@ -55,6 +73,7 @@
       </v-container>
     </v-main>
 
+    <!-- Footer Content -->
     <v-footer :absolute="fixed" app>
       <div class="footer-content">
         <span
@@ -68,6 +87,7 @@
 
 <script>
 import ResumeDownload from '~/components/ResumeDownload.vue'
+
 export default {
   components: {
     ResumeDownload,
@@ -98,5 +118,17 @@ export default {
   align-items: center;
   text-align: center;
   width: 100%;
+}
+.drawer-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+.navigation-drawer {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8),
+    rgba(128, 128, 128, 0.8)
+  ); /* Black to grey transparent gradient */
 }
 </style>
