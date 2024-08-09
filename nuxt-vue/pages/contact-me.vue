@@ -8,9 +8,10 @@
         </h4>
       </v-col>
     </v-row>
+    <v-container class="form-container" fluid>
     <v-row justify="center">
-      <v-col cols="12" md="8">
-        <v-container>
+      <v-col cols="12" md="8" lg="6">
+        <v-card v-if="!formSubmitted" class="pa-5">
           <v-row justify="center" class="mt-5">
             <v-col cols="12" md="8">
               <form ref="form" class="custom-form" @submit.prevent="submitForm">
@@ -85,9 +86,14 @@
               </form>
             </v-col>
           </v-row>
-        </v-container>
+        </v-card>
+        <v-card v-else class="thank-you-card pa-5">
+          <v-card-title class="headline d-flex justify-center">Thank You!</v-card-title>
+          <v-card-text>Your message has been successfully sent. I will get back to you soon.</v-card-text>
+        </v-card>
       </v-col>
     </v-row>
+    </v-container>
     <v-row justify="center" class="mt-5">
       <v-col cols="12" md="8">
         <ContactInformation />
@@ -117,7 +123,10 @@ export default {
       },
       errors: {},
       isFormValid: false,
+      formSubmitted: false,
       captchaVerified: false,
+      thankYouMessage: false,
+    
     }
   },
 
@@ -132,7 +141,6 @@ export default {
 
   methods: {
     onCaptchaVerified(response) {
-      console.log(JSON.stringify(this.form, null, 2))
       this.captchaVerified = !!response
     },
     onCaptchaExpired() {
@@ -163,13 +171,34 @@ export default {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
       return re.test(email)
     },
-    submitForm() {
+    async submitForm(event) {
+      event.preventDefault(); // Prevent the default form submission
       if (this.validateForm() && this.captchaVerified) {
-        const form = this.$refs.form
-        form.action = this.formSpreeUrl
-        form.method = 'POST'
-        form.target = '_blank'
-        form.submit()
+        try {
+          const response = await fetch(this.formSpreeUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.form)
+          });
+
+          if (response.ok) {
+            this.formSubmitted = true;
+            this.thankYouMessage = true;
+            this.form = {
+              name: '',
+              email: '',
+              phone: '',
+              message: ''
+            };
+          } else {
+            // Handle errors here
+            console.error('Form submission failed:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+        }
       }
     },
   },
@@ -214,5 +243,10 @@ export default {
   .custom-btn {
     font-size: 14px; /* Smaller font size on small screens */
   }
+}
+
+.thank-you-card {
+  text-align: center;
+  color: #4caf50;
 }
 </style>
