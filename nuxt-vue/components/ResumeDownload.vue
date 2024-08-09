@@ -1,5 +1,5 @@
 <template>
-  <button @click="downloadPDF">View Résumé (PDF)</button>
+  <button @click="downloadPDF">View Resume (PDF)</button>
 </template>
 
 <script>
