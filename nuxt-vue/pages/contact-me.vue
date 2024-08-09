@@ -13,9 +13,9 @@
         <v-container>
           <v-row justify="center" class="mt-5">
             <v-col cols="12" md="8">
-              <form @submit.prevent="submitForm" ref="form" class="custom-form">
+              <form ref="form" class="custom-form" @submit.prevent="submitForm">
                 <v-text-field
-                  v-model="name"
+                  v-model="form.name"
                   label="Name"
                   name="name"
                   prepend-icon="mdi-account"
@@ -24,9 +24,10 @@
                   class="custom-field"
                   hint="Enter your full name"
                   persistent-hint
+                  @input="validateForm"
                 ></v-text-field>
                 <v-text-field
-                  v-model="email"
+                  v-model="form.email"
                   label="Email"
                   name="email"
                   type="email"
@@ -39,9 +40,10 @@
                   class="custom-field"
                   hint="Enter your email address"
                   persistent-hint
+                  @input="validateForm"
                 ></v-text-field>
                 <v-text-field
-                  v-model="phone"
+                  v-model="form.phone"
                   label="Phone (optional)"
                   name="phone"
                   type="tel"
@@ -51,7 +53,7 @@
                   persistent-hint
                 ></v-text-field>
                 <v-textarea
-                  v-model="message"
+                  v-model="form.message"
                   :rules="[(v) => !!v || 'Message is required']"
                   label="Message"
                   name="message"
@@ -60,13 +62,22 @@
                   class="custom-field"
                   hint="Enter your message"
                   persistent-hint
+                  @input="validateForm"
                 ></v-textarea>
+                <div style="display: flex; justify-content: center">
+                  <vue-recaptcha
+                    :sitekey="captchaSiteKey"
+                    @verify="onCaptchaVerified"
+                    @expired="onCaptchaExpired"
+                  />
+                </div>
+
                 <v-row justify="center">
                   <v-col cols="12" md="4" class="d-flex justify-center">
                     <v-btn
                       class="custom-btn mt-4"
                       type="submit"
-                      :disabled="!valid"
+                      :disabled="!isFormValid && !captchaVerified"
                       >Submit</v-btn
                     >
                   </v-col>
@@ -86,27 +97,76 @@
 </template>
 
 <script>
+import VueRecaptcha from 'vue-recaptcha'
 import ContactInformation from '~/components/ContactInformation.vue'
 
 export default {
   name: 'ContactMe',
   components: {
     ContactInformation,
+    VueRecaptcha,
   },
+
   data() {
     return {
-      valid: false,
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
+      form: {
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      },
+      errors: {},
+      isFormValid: false,
+      captchaVerified: false,
     }
   },
+
+  computed: {
+    captchaSiteKey() {
+      return process.env.NUXT_ENV_CAPTCHA_SITE_KEY_V2
+    },
+    formSpreeUrl() {
+      return process.env.NUXT_ENV_FORMSPREE_URL
+    },
+  },
+
   methods: {
+    onCaptchaVerified(response) {
+      console.log(JSON.stringify(this.form, null, 2))
+      this.captchaVerified = !!response
+    },
+    onCaptchaExpired() {
+      this.captchaVerified = false
+    },
+    validateForm() {
+      this.errors = {}
+
+      if (!this.form.name) {
+        this.errors.name = 'Name is required.'
+      }
+
+      if (!this.form.email) {
+        this.errors.email = 'Email is required.'
+      } else if (!this.validEmail(this.form.email)) {
+        this.errors.email = 'Valid email is required.'
+      }
+
+      if (!this.form.message) {
+        this.errors.message = 'Message is required.'
+      }
+      const isFormValid = Object.keys(this.errors).length === 0
+      this.valid = isFormValid
+      return isFormValid
+    },
+    validEmail(email) {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
+      return re.test(email)
+    },
     submitForm() {
-      if (this.$refs.form.validate()) {
-        const form = this.$refs.form.$el
-        form.action = 'https://formspree.io/f/mblryopb'
+      if (this.validateForm() && this.captchaVerified) {
+        const form = this.$refs.form
+        form.action = this.formSpreeUrl
         form.method = 'POST'
         form.target = '_blank'
         form.submit()
