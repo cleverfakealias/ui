@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="playground-container">
+  <v-container>
+    <div class="playground-container" app>
       <header class="playground-header">
         <h1>Just a place to play around</h1>
       </header>
@@ -18,28 +18,7 @@
         </div>
       </main>
     </div>
-    <div>
-      <br />
-      <v-container>
-        <!-- Interactive Projects Showcase -->
-        <v-carousel>
-          <v-carousel-item v-for="(project, index) in projects" :key="index">
-            <v-card>
-              <v-img :src="project.image" height="200px"></v-img>
-              <v-card-title>{{ project.title }}</v-card-title>
-              <v-card-subtitle>{{ project.description }}</v-card-subtitle>
-              <v-card-actions>
-                <v-btn :href="project.link" target="_blank">View Project</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-carousel-item>
-        </v-carousel>
-
-        <!-- Downloadable Resume Button -->
-        <v-btn @click="downloadResume" color="primary"> Download Resume </v-btn>
-      </v-container>
-    </div>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -48,57 +27,11 @@ export default {
     return {
       inputText: '',
       displayedText: '',
-      timelineItems: [
-        {
-          title: 'Software Engineer',
-          subtitle: 'SPS Commerce',
-          description:
-            'Seasoned Software Developer working on enterprise Saas applications',
-          timestamp: '2017-present',
-          color: 'primary',
-          icon: 'mdi-briefcase',
-        },
-        {
-          title: 'Support Supervisor',
-          subtitle: 'WhereToLive.com',
-          description:
-            'Managed technical support team for web developer and email host for the Real Estate industry',
-          timestamp: '2012-2017',
-          color: 'primary',
-          icon: 'mdi-briefcase',
-        },
-        {
-          title: 'Technical Support Representative',
-          subtitle: 'Microboards Technology',
-          description:
-            'Provide technical support for CD and DVD replication and printing devices',
-          timestamp: '2007-2012',
-          color: 'primary',
-          icon: 'mdi-briefcase',
-        },
-      ],
-      skills: [
-        { name: 'JavaScript', level: 90 },
-        { name: 'Vue.js', level: 80 },
-        // Add more skills here
-      ],
-      projects: [
-        {
-          title: 'Project 1',
-          description: 'Description of project 1.',
-          image: 'path/to/image.jpg',
-          link: 'https://example.com',
-        },
-        // Add more projects here
-      ],
     }
   },
   methods: {
     displayText() {
       this.displayedText = this.inputText
-    },
-    downloadResume() {
-      console.log('something happened')
     },
   },
 }

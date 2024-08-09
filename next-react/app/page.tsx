@@ -49,7 +49,7 @@ export default function Home() {
               </a>
             </div>
           </Grid>
-          
+
           <Grid item xs={4} className="text-right">
             <img
               src={"/me.jpg"}
@@ -68,9 +68,9 @@ export default function Home() {
           actually show you. Reach out if you believe we could create something
           great together.
         </Typography>
-        <br />      
+        <br />
         <ContactForm />
-        </div>
+      </div>
     </main>
   );
 }

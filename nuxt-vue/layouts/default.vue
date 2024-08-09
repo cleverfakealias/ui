@@ -11,6 +11,7 @@
         <v-btn icon :href="linkedinLink" target="_blank">
           <v-icon>mdi-linkedin</v-icon>
         </v-btn>
+        <ResumeDownload />
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <form action="https://duckduckgo.com/" method="get" target="_blank">
@@ -25,9 +26,36 @@
     </v-app-bar>
 
     <!-- Navigation Drawer -->
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer
+      v-model="drawer"
+      :clipped="$vuetify.breakpoint.lgAndUp && clipped"
+      class="navigation-drawer"
+      fixed
+    >
+      <div class="drawer-header">
+        <v-btn icon class="close-btn" @click="drawer = false">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </div>
       <v-list>
-        <v-list-item v-for="item in items" :key="item.title" :to="item.to">
+        <v-list-item class="user-info">
+          <v-list-item-avatar>
+            <v-img :src="myPhoto"></v-img>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title class="headline">Ben Hickman</v-list-item-title>
+            <v-list-item-subtitle>me@benhickman.com</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          :to="item.to"
+          @click="drawer = !drawer"
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -39,13 +67,17 @@
       <v-divider></v-divider>
     </v-navigation-drawer>
 
+    <!-- Overlay to detect clicks outside the drawer -->
+    <v-overlay v-if="drawer" @click="drawer = false"></v-overlay>
+
     <!-- Main Content -->
     <v-main>
-      <v-container>
+      <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
 
+    <!-- Footer Content -->
     <v-footer :absolute="fixed" app>
       <div class="footer-content">
         <span
@@ -58,9 +90,15 @@
 </template>
 
 <script>
+import ResumeDownload from '~/components/ResumeDownload.vue'
+
 export default {
+  components: {
+    ResumeDownload,
+  },
   data() {
     return {
+      myPhoto: require('@/assets/me.jpg'),
       drawer: false,
       clipped: false,
       fixed: false,
@@ -69,7 +107,7 @@ export default {
       linkedinLink: 'https://linkedin.benhickman.dev',
       items: [
         { title: 'Welcome', icon: 'mdi-home', to: '/' },
-        { title: 'Résumé', icon: 'mdi-file', to: '/resume' },
+        { title: 'Resume', icon: 'mdi-file', to: '/resume' },
         { title: 'Contact Me', icon: 'mdi-email', to: '/contact-me' },
         { title: 'Playground', icon: 'mdi-test-tube', to: '/playground' },
       ],
@@ -85,5 +123,17 @@ export default {
   align-items: center;
   text-align: center;
   width: 100%;
+}
+.drawer-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+.navigation-drawer {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7),
+    #1976d2
+  ); /* Black to vibrant blue gradient */
 }
 </style>
