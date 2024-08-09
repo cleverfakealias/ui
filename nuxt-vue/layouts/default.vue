@@ -28,7 +28,6 @@
     <!-- Navigation Drawer -->
     <v-navigation-drawer
       v-model="drawer"
-      v-click-outside="closeDrawer"
       :clipped="$vuetify.breakpoint.lgAndUp && clipped"
       class="navigation-drawer"
       fixed
@@ -41,7 +40,7 @@
       <v-list>
         <v-list-item class="user-info">
           <v-list-item-avatar>
-            <v-img src="https://via.placeholder.com/150"></v-img>
+            <v-img :src="myPhoto"></v-img>
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title class="headline">Ben Hickman</v-list-item-title>
@@ -51,7 +50,7 @@
 
         <v-divider></v-divider>
 
-        <v-list-item v-for="item in items" :key="item.title" :to="item.to">
+        <v-list-item v-for="item in items" :key="item.title" :to="item.to" @click="drawer = !drawer">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -94,6 +93,7 @@ export default {
   },
   data() {
     return {
+      myPhoto: require('@/assets/me.jpg'),
       drawer: false,
       clipped: false,
       fixed: false,
@@ -125,10 +125,6 @@ export default {
   padding: 10px;
 }
 .navigation-drawer {
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.8),
-    rgba(128, 128, 128, 0.8)
-  ); /* Black to grey transparent gradient */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), #1976d2); /* Black to vibrant blue gradient */
 }
 </style>
