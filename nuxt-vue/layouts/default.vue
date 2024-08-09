@@ -50,7 +50,12 @@
 
         <v-divider></v-divider>
 
-        <v-list-item v-for="item in items" :key="item.title" :to="item.to" @click="drawer = !drawer">
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          :to="item.to"
+          @click="drawer = !drawer"
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -125,6 +130,10 @@ export default {
   padding: 10px;
 }
 .navigation-drawer {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), #1976d2); /* Black to vibrant blue gradient */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7),
+    #1976d2
+  ); /* Black to vibrant blue gradient */
 }
 </style>
