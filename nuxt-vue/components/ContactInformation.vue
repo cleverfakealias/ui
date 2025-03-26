@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-4">
+  <v-container fluid>
     <v-card class="contact-card" outlined>
       <v-card-title class="d-flex justify-space-between align-center">
         <v-col cols="12" sm="6" class="d-flex align-center">
