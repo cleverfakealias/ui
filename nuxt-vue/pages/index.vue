@@ -3,7 +3,7 @@
   <v-main class="welcomePageMainContainer">
     <v-container>
       <!-- Development Notice -->
-      <v-row class="pageDevelopmentNotice" align="center" justify="center">
+      <!-- <v-row class="pageDevelopmentNotice" align="center" justify="center">
         <v-col cols="auto" class="d-flex align-center">
           <v-icon color="warning" class="responsive-icon">mdi-alert</v-icon>
         </v-col>
@@ -16,7 +16,7 @@
         <v-col cols="auto" class="d-flex align-center">
           <v-icon color="warning" class="responsive-icon">mdi-alert</v-icon>
         </v-col>
-      </v-row>
+      </v-row> -->
 
       <!-- Content Carousel -->
       <v-row justify="center" class="my-5">
@@ -27,7 +27,7 @@
 
       <!-- Skills Section -->
       <v-row justify="center" class="my-5">
-        <v-col class="text-center">
+        <v-col cols="12" md="8" class="text-center">
           <h2 class="my-5 responsive-text">Career Highlights</h2>
           <v-row justify="center">
             <v-col
@@ -81,14 +81,6 @@
               </v-list-item-avatar>
               <v-list-item-content>
                 <a href="https://vercel.com" target="_blank">Vercel</a>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-avatar>
-                <v-icon class="responsive-icon">mdi-language-python</v-icon>
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <a href="https://www.python.org" target="_blank">Python</a>
               </v-list-item-content>
             </v-list-item>
           </v-list>
